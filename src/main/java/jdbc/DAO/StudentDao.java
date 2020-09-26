@@ -1,6 +1,6 @@
-package DAO;
+package jdbc.DAO;
 
-import model.Student;
+import jdbc.model.Student;
 
 import java.util.List;
 

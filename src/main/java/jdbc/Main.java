@@ -1,10 +1,10 @@
-import DAO.StudentDao;
-import DAO.StudentDaoImpl;
-import model.Student;
+package jdbc;
+
+import jdbc.DAO.StudentDao;
+import jdbc.DAO.StudentDaoImpl;
+import jdbc.model.Student;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {

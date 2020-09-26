@@ -1,28 +1,32 @@
-package model;
+package jpa.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class Student {
-    private int id;
+@Entity
+@Table(name = "teachers")
+public class Teacher {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "teacher_id")
+    private int teacherId;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    public Student() {
+    @Transient
+    private String fullName;
+
+    public int getTeacherId() {
+        return teacherId;
     }
 
-    public Student(String firstName, String lastName, LocalDate birthDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     public String getFirstName() {
@@ -49,14 +53,21 @@ public class Student {
         this.birthDate = birthDate;
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
+        return "Teacher{" +
+                "teacherId=" + teacherId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
                 '}';
     }
 }
-
