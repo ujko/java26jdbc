@@ -1,0 +1,1 @@
+create table student(id int, first_name varchar(55), last_name varchar(55), birth_date date)
