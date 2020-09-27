@@ -11,10 +11,10 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-//        Teacher t = new Teacher();
-//        t.setFirstName("Anna");
-//        t.setLastName("Jozefowicz");
-//        t.setBirthDate(LocalDate.of(1992, 12, 23));
+        Teacher t = new Teacher();
+        t.setFirstName("Krzysztof");
+        t.setLastName("Nowak");
+        t.setBirthDate(LocalDate.of(1984, 12, 23));
 
 //        Account a = new Account();
 //        a.setName("1");
@@ -30,16 +30,16 @@ public class Main {
 
 
 
-//        em.getTransaction().begin();
+        em.getTransaction().begin();
 //        Teacher teacher = em.find(Teacher.class, 1);
 //        teacher.setFirstName("Jarek");
-//        em.persist(a);
+        em.persist(t);
 //
 //        System.out.println(t);
-//        em.getTransaction().commit();
+        em.getTransaction().commit();
 
-        Account account = em.find(Account.class, new AccountId("3", "1"));
-        System.out.println(account);
+//        Account account = em.find(Account.class, new AccountId("3", "1"));
+//        System.out.println(account);
         em.close();
     }
 }

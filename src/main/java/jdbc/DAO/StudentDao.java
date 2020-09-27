@@ -5,6 +5,8 @@ import jdbc.model.Student;
 import java.util.List;
 
 public interface StudentDao {
+    int a = 5;
+
     List<Student> getAll();
     Student getById(int studentId);
     List<Student> getByFirstName(String firstName);

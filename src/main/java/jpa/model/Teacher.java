@@ -3,9 +3,32 @@ package jpa.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "teachers")
 @Table(name = "teachers")
+@NamedQueries({@NamedQuery
+        (name = "byName", query = "select t from teachers t where t.firstName = :firstName")})
 public class Teacher {
+
+    public enum Query {
+        BY_NAME("byName", "firstName"),
+        BY_LAST_NAME("byLastName", "lastName"),
+        BY_AGE("byAge", "age");
+        private String queryName;
+        private String parameterName;
+
+        Query(String queryName, String parameterName) {
+            this.queryName = queryName;
+            this.parameterName = parameterName;
+        }
+
+        public String getQueryName() {
+            return queryName;
+        }
+
+        public String getParameterName() {
+            return parameterName;
+        }
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
